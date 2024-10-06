@@ -1,0 +1,68 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path" : "pages/people/people",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/message/message",
+			"style" : 
+			{
+				"navigationBarTitleText" : "消息"
+			}
+		},
+		{
+			"path" : "pages/myself/myself",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		}
+	],
+	"tabBar":{
+		 "color": "#6A6A6A",
+		 "selectedColor": "#21C059",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"text":"首页",
+				"iconPath":"static/tab/home1.png",
+				"selectedIconPath": "static/tab/home2.png"
+			},
+			{
+				"pagePath":"pages/people/people",
+				"text":"人才",
+				"iconPath":"static/tab/people1.png",
+				"selectedIconPath": "static/tab/people2.png"
+			},
+			{
+				"pagePath":"pages/message/message",
+				"text":"消息",
+				"iconPath":"static/tab/message1.png",
+				"selectedIconPath": "static/tab/message2.png"
+			},
+			{
+				"pagePath":"pages/myself/myself",
+				"text":"我的",
+				"iconPath":"static/tab/my1.png",
+				"selectedIconPath": "static/tab/my2.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

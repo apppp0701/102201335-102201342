@@ -26,11 +26,33 @@
 			{
 				"navigationBarTitleText" : ""
 			}
+		},
+		{
+			"path" : "pages/creat/creat",
+			"style" : 
+			{
+				"navigationBarTitleText" : "创建项目"
+			}
+		},
+		{
+			"path" : "pages/post/post",
+			"style" : 
+			{
+				"navigationBarTitleText" : "项目"
+			}
+		},
+		{
+			"path" : "pages/chat/chat",
+			"style" : 
+			{
+				"navigationBarTitleText" : "聊天"
+			}
 		}
 	],
 	"tabBar":{
 		 "color": "#6A6A6A",
 		 "selectedColor": "#21C059",
+		 "borderStyle": "white",
 		"list":[
 			{
 				"pagePath":"pages/index/index",
@@ -62,7 +84,10 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"easycom": {
+		      "^uni-": "components/"
+		    }
 	},
 	"uniIdRouter": {}
 }

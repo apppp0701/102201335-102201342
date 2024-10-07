@@ -1,27 +1,34 @@
 <template>
-  <div class="project-recommendation">
-    <!-- 页面顶部 -->
-    <div class="header">
-      <h1>项目推荐</h1>
-      <p>精心筛选 只为更优秀的你</p>
-    </div>
+  <view class="container">
+    <!-- 顶部文字 -->
+    <view class="header">
+      <text class="title">项目推荐</text>
+      <text class="subtitle">精心筛选 只为更优秀的你</text>
+    </view>
 
     <!-- 搜索框 -->
-    <div class="search-bar">
-      <input type="text" placeholder="搜索" />
-    </div>
+    <view class="search-box">
+      <input class="search-input" type="text" placeholder="搜索" />
+    </view>
 
-    <!-- 项目列表 -->
-    <ul class="projects-list">
-      <li v-for="(item, index) in projects" :key="index" @click="openProject(item)">
-        <div class="project-card">
-          <h2>{{ item.title }}</h2>
-          <p>招募: {{ item.recruitment }}人 报名截止: {{ item.deadline }}</p>
-          <span v-for="(tag, tagIndex) in item.tags" :key="tagIndex">{{ tag }}</span>
-        </div>
-      </li>
-    </ul>
-  </div>
+    <!-- 卡片列表 -->
+    <view class="card-list">
+      <view v-for="(item, index) in projects" :key="index" class="card" @click="navigateToDetail(item)">
+        <view class="card-header">
+          <text class="card-title">{{ item.title }}</text>
+        </view>
+        <view class="card-footer">
+          <text class="footer-text">招募：{{ item.recruit }}</text>
+          <text class="footer-text">报名截止：{{ item.deadline }}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 右下角按钮 -->
+    <view class="floating-button" @click="navigateToPost">
+      <image src="../../static/button.png" mode="aspectFit" />
+    </view>
+  </view>
 </template>
 
 <script>
@@ -29,40 +36,160 @@ export default {
   data() {
     return {
       projects: [
-        // 假设这是从服务器获取的数据
-        { title: '数学建模比赛项目', recruitment: 2, deadline: '2024年3月1日', tags: ['数学建模', '数据分析', '编程', '文档撰写'] },
-        // ...其他项目数据...
-      ],
+        {
+          title: '数学建模比赛项目',
+          recruit: '2人',
+          deadline: '2024年3月1日',
+          id: '1'
+        },
+        {
+          title: '人工智能研究项目',
+          recruit: '3人',
+          deadline: '2024年4月15日',
+          id: '2'
+        },
+        {
+          title: '环保公益活动',
+          recruit: '5人',
+          deadline: '2024年5月10日',
+          id: '3'
+        },
+        // 在这里继续添加更多项目...
+        {
+          title: '更多项目名称',
+          recruit: '招募人数',
+          deadline: '截止日期',
+          id: '4' // 确保id是唯一的
+        },
+        // 更多项目...
+      ]
     };
   },
   methods: {
-    openProject(project) {
-      console.log('Opening project:', project);
-      // 这里可以添加跳转到新页面的逻辑
+    navigateToDetail(item) {
+      // 跳转到详情界面，并传递项目ID
+      uni.navigateTo({
+        url: `/pages/post/post?id=${item.id}`
+      });
     },
-  },
-};
+    navigateToPost() {
+      // 跳转到发布帖子界面
+      uni.navigateTo({
+        url: '/pages/creat/creat'
+      });
+    }
+  }
+}
 </script>
 
-<style scoped>
-/* 样式部分 */
-.project-recommendation {
-  /* 整体样式 */
+<style>
+.footer-text {
+  margin-right: 10px; /* 招募和报名截止之间的距离 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to bottom, #C7F6C7, #E4EFE8); /* 浅绿色渐变背景 */
+  padding: 20px; /* 添加一些内边距 */
 }
 
 .header {
-  /* 头部样式 */
+  margin-bottom: 20px; /* 搜索框高度 */
+  text-align: center; /* Center the text */
 }
 
-.search-bar input {
-  /* 搜索框样式 */
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  display: block; /* Ensure title is on a new line */
+  text-align: left; /* Right align the title */
+  margin-top: 50px; /* 增加标题与上方元素之间的间距 */
+  margin-bottom: 5px; /* 增加标题与副标题之间的间距 */
 }
 
-.projects-list li {
-  /* 列表项样式 */
+.subtitle {
+  font-size: 12px;
+  color: #666;
+  display: block; /* Ensure subtitle is on a new line */
+  text-align: left; /* Right align the subtitle */
 }
 
-.project-card {
-  /* 卡片样式 */
+.search-box {
+  position: relative; /* 为定位图标做准备 */
+  width: 100%; /* 使容器宽度为100% */
+  display: flex; /* 使用 flexbox 来居中 */
+  justify-content: center; /* 水平居中对齐 */
+  margin: 20px 0; /* 设置上下外边距，可以根据需要调整 */
+}
+
+.search-input {
+  width: 300px; /* 适当缩短搜索框的宽度 */
+  padding: 8px 36px 8px 40px; /* 左侧留出空间给图标 */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff; /* 设置背景色为白色 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加轻微阴影以提升视觉效果 */
+}
+
+.search-input::placeholder {
+  color: #aaa; /* 更改占位符颜色 */
+}
+
+/* 添加搜索图标 */
+.search-box::before {
+  content: ''; /* 使用伪元素 */
+  position: absolute; /* 绝对定位 */
+  left: 10px; /* 距离左侧10px */
+  top: 50%; /* 垂直居中 */
+  transform: translateY(-50%); /* 精确垂直居中 */
+  width: 16px; /* 图标宽度 */
+  height: 16px; /* 图标高度 */
+  background-image: url('../../static/tab/search.png'); /* 替换为您的图标路径 */
+  background-size: contain; /* 图标适应背景 */
+  background-repeat: no-repeat; /* 不重复 */
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-footer {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 右下角按钮样式 */
+.floating-button {
+  position: fixed;
+  bottom: 80px; /* 距离底部20px */
+  right: 20px; /* 距离右边20px */
+  width: 60px; /* 根据需要调整宽度 */
+  height: 60px; /* 根据需要调整高度 */
+  z-index: 1000; /* 确保按钮在最上层 */
+}
+
+.floating-button image {
+  width: 100%;
+  height: 100%;
 }
 </style>

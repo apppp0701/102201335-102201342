@@ -40,6 +40,13 @@
 			{
 				"navigationBarTitleText" : "项目"
 			}
+		},
+		{
+			"path" : "pages/chat/chat",
+			"style" : 
+			{
+				"navigationBarTitleText" : "聊天"
+			}
 		}
 	],
 	"tabBar":{

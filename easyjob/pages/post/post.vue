@@ -31,6 +31,15 @@
       <label class="label">团队需求</label>
       <textarea class="large-textarea" :value="formData.teamRequirement" disabled></textarea>
     </view>
+    
+    <!-- 新增按钮 -->
+    <view class="button-container">
+      <button class="button" @click="handleRequestJoin">请求加入</button>
+      <button class="button" @click="goToChat">立即沟通</button>
+    </view>
+    
+    <!-- 显示申请状态 -->
+    <view v-if="requestStatus" class="request-status">{{ requestStatus }}</view>
   </view>
 </template>
 
@@ -40,14 +49,31 @@ export default {
     return {
       formData: {
         projectName: '示例项目名称',
-        projectLeader: '负责人姓名', // 项目负责人
+        projectLeader: '负责人姓名',
         recruitNumber: 3,
         deadline: '2024年10月10日',
-        projectDescription: '这是项目的描述部分', // 新增项目描述字段
+        projectDescription: '这是项目的描述部分',
         projectGoal: '实现XXX目标',
         teamRequirement: '需要会使用XXX工具的人'
-      }
+      },
+      requestStatus: '' // 用于存储申请状态
     };
+  },
+  methods: {
+    handleRequestJoin() {
+      // 设置申请状态为“已申请”
+      this.requestStatus = '已申请';
+      // 0.5秒后清除状态
+      setTimeout(() => {
+        this.requestStatus = '';
+      }, 500);
+    },
+    goToChat() {
+      // 使用 uni.navigateTo 进行页面跳转
+      uni.navigateTo({
+        url: '/pages/chat/chat'
+      });
+    }
   }
 }
 </script>
@@ -57,23 +83,23 @@ export default {
   padding: 20px;
 
   .form-group {
-    display: flex; /* 使用Flexbox布局 */
-    align-items: center; /* 垂直居中 */
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 
     .label {
-      font-weight: bold; /* 加粗标签 */
-      margin-right: 10px; /* 标签与输入框之间的间距 */
-      width: 120px; /* 固定标签宽度，确保对齐 */
+      font-weight: bold;
+      margin-right: 10px;
+      width: 120px;
     }
 
     input,
     textarea {
       border: 1px solid #ccc;
       padding: 8px;
-      width: 100%; /* 使输入框和文本区域填满可用空间 */
-      max-width: 600px; /* 设置最大宽度以控制整体布局 */
-      background-color: #f9f9f9; /* 禁用状态下的背景颜色 */
+      width: 100%;
+      max-width: 600px;
+      background-color: #f9f9f9;
     }
 
     picker {
@@ -81,15 +107,40 @@ export default {
       padding: 8px;
       display: block;
       width: 100%;
-      max-width: 600px; /* 设置最大宽度以控制整体布局 */
-      background-color: #f9f9f9; /* 禁用状态下的背景颜色 */
+      max-width: 600px;
+      background-color: #f9f9f9;
     }
 
     .large-textarea {
-      min-height: 100px; // 设置最小高度
-      height: auto; // 允许自适应高度
-      resize: none; /* 禁止用户调整大小 */
+      min-height: 100px;
+      height: auto;
+      resize: none;
     }
   }
+
+  .button-container {
+    display: flex; /* 使用Flexbox布局 */
+    justify-content: space-between; /* 按钮间距 */
+    margin-top: 20px; /* 按钮上方的间距 */
+  }
+
+  .button {
+    background-color: #21C059; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    border: none; /* 无边框 */
+    padding: 3px 20px; /* 按钮内边距 */
+    border-radius: 5px; /* 按钮圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为手型 */
+  }
+
+  .request-status {
+    color: green; /* 状态文本颜色 */
+    margin-top: 10px; /* 状态文本与按钮的间距 */
+    font-weight: bold; /* 加粗状态文本 */
+    text-align: center; /* 文字居中 */
+    width: 100%; /* 确保它占满整个宽度 */
+  }
+
 }
 </style>
+

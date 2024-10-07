@@ -104,7 +104,7 @@ export default {
 
 
   button {
-    background-color: green;
+    background-color: #21C059;
     color: white;
     margin-top: 15px;
   }

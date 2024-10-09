@@ -10,4 +10,7 @@ class Register(models.Model):
     college = models.CharField(max_length=100,verbose_name="学院")
     student_number = models.CharField(max_length=100,verbose_name="学号")
     major = models.CharField(max_length=100,blank=True, null=True,default=' ',verbose_name="专业")
-    password = models.CharField(max_length=100,verbose_name="密码")
+    password = models.CharField(max_length=100,blank=True, null=True,default=' ', verbose_name="密码")
+    repassword = models.CharField(max_length=100,blank=True, null=True,default=' ', verbose_name="确认密码")
+    def __str__(self):
+        return self.name

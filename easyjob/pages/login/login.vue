@@ -1,26 +1,26 @@
 <template>
-<view class="login-container">
+<view class="lllogin-container">
 <!-- Header -->
-<view class="header">
-<text class="title">HELLO </text>
-<text class="subtitle">欢迎使用ProjectPartner</text>
+<view class="llheader">
+<text class="lltitle">HELLO </text>
+<text class="llsubtitle">欢迎使用ProjectPartner</text>
 </view>
 
 <!-- Login Form -->
-<view class="form">
-  <view class="input-group">
-    <text class="icon">👤</text>
-    <input class="input" v-model="phone" placeholder="请输入手机号" />
+<view class="llform">
+  <view class="llinput-group">
+    <text class="llicon">👤</text>
+    <input class="llinput" v-model="phone" placeholder="请输入手机号" />
   </view>
-  <view class="input-group">
-    <text class="icon">🔒</text>
-    <input class="input" v-model="password" type="password" placeholder="请输入密码" />
+  <view class="llinput-group">
+    <text class="llicon">🔒</text>
+    <input class="llinput" v-model="password" type="password" placeholder="请输入密码" />
   </view>
 </view>
 
 <!-- Buttons -->
-<button class="login-button" @click="handleLogin">登录</button>
-<button class="register-button" @click="navigateToRegister">注册</button>
+<button class="lllogin-button" @click="handleLogin">登录</button>
+<button class="llregister-button" @click="navigateToRegister">注册</button>
 
 <!-- Error Message -->
 <text v-if="showError" class="error-message">登录失败</text>
@@ -60,7 +60,7 @@ url: '/pages/register/choice'
 </script>
 
 <style>
-.login-container {
+.lllogin-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,32 +71,32 @@ url: '/pages/register/choice'
   padding-bottom: 20px; /* 可选：保持底部间距 */
 }
 
-.header {
+.llheader {
 display: flex;
 flex-direction: column; /* 设置为垂直排列 /
 align-items: center; / 水平居中 /
 justify-content: center; / 垂直居中 */
 }
 
-.title {
+.lltitle {
 line-height: 10px;
 font-size: 30px;
 font-weight: bold;
 }
 
-.subtitle {
+.llsubtitle {
 line-height: 50px;
 font-size: 16px;
 margin-top: 10px;
 }
 
-.form {
+.llform {
 width: 100%;
 max-width: 300px;
 margin-bottom: 20px;
 }
 
-.input-group {
+.llinput-group {
 display: flex;
 align-items: center;
 margin-bottom: 15px;
@@ -105,18 +105,18 @@ border-radius: 25px;
 padding: 10px;
 }
 
-.icon {
+.llicon {
 margin-right: 10px;
 font-size: 18px;
 }
 
-.input {
+.llinput {
 flex: 1;
 border: none;
 outline: none;
 }
 
-.login-button {
+.lllogin-button {
 width: 100%;
 max-width: 300px;
 padding: 5px;
@@ -128,7 +128,7 @@ text-align: center;
 margin-bottom: 10px;
 }
 
-.register-button {
+.llregister-button {
 width: 100%;
 max-width: 300px;
 padding: 5px;
@@ -139,7 +139,7 @@ border-radius: 25px;
 text-align: center;
 }
 
-.error-message {
+.llerror-message {
 color: red;
 margin-top: 20px;
 }

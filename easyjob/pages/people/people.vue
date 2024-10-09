@@ -13,7 +13,7 @@
 
     <!-- Person Card List -->
     <view class="card-list">
-      <view v-for="(person, index) in people" :key="index" class="person-card">
+      <view v-for="(person, index) in people" :key="index" class="person-card" @click="goToPersonData(person)">
         <view class="card-content">
           <view class="avatar">
             <image src="../../static/logo.png" mode="aspectFit" class="avatar-image" />
@@ -29,7 +29,7 @@
               <text class="person-major">专业：{{ person.major }}</text>
             </view>
           </view>
-          <image src="../../static/message.png" mode="aspectFit" class="more-icon" @click="goToChat(person)" />
+          <image src="../../static/message.png" mode="aspectFit" class="more-icon" @click.stop="goToChat(person)" />
         </view>
         <view class="role-tag">
           <text class="tag">{{ person.role }}</text>
@@ -56,24 +56,24 @@ export default {
           major: '计算机科学与技术',
           role: '老师'
         },
-		{
-		  name: '李小明',
-		  id: '福州大学',
-		  major: '计算机科学与技术',
-		  role: '学生'
-		},
-		{
-		  name: '李老师',
-		  id: '福州大学',
-		  major: '计算机科学与技术',
-		  role: '老师'
-		},
-		{
-		  name: '李小明',
-		  id: '福州大学',
-		  major: '计算机科学与技术',
-		  role: '学生'
-		},
+        {
+          name: '李小明',
+          id: '福州大学',
+          major: '计算机科学与技术',
+          role: '学生'
+        },
+        {
+          name: '李老师',
+          id: '福州大学',
+          major: '计算机科学与技术',
+          role: '老师'
+        },
+        {
+          name: '李小明',
+          id: '福州大学',
+          major: '计算机科学与技术',
+          role: '学生'
+        },
         // Add more people as needed
       ]
     };
@@ -81,16 +81,21 @@ export default {
   methods: {
     goToChat(person) {
       // Navigate to the chat page and pass the person data
-      // Adjust the navigate method according to the framework you are using
       uni.navigateTo({
         url: `/pages/chat/chat?name=${person.name}&id=${person.id}&major=${person.major}&role=${person.role}`
+      });
+    },
+    goToPersonData(person) {
+      // Navigate to the person data page and pass the person data
+      uni.navigateTo({
+        url: `/pages/myself/data?name=${person.name}&id=${person.id}&major=${person.major}&role=${person.role}`
       });
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   display: flex;
   flex-direction: column;

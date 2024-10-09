@@ -69,6 +69,34 @@
 			{
 				"navigationBarTitleText" : "选择身份"
 			}
+		},
+		{
+			"path" : "pages/myself/data",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/myself/myproject",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的项目"
+			}
+		},
+		{
+			"path" : "pages/myself/member",
+			"style" : 
+			{
+				"navigationBarTitleText" : "成员管理"
+			}
+		},
+		{
+			"path" : "pages/myself/project",
+			"style" : 
+			{
+				"navigationBarTitleText" : "项目"
+			}
 		}
 	],
 	"tabBar":{

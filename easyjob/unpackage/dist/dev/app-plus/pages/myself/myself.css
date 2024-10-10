@@ -1,0 +1,36 @@
+
+.container[data-v-860aaed2] {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to bottom, #C7F6C7, #E4EFE8); /* 浅绿色渐变背景 */
+  padding: 20px; /* 添加一些内边距 */
+}
+.avatar-container[data-v-860aaed2] {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* 调整头像与其他内容之间的间距 */
+}
+.avatar[data-v-860aaed2] {
+  width: 80px; /* 头像宽度 */
+  height: 80px; /* 头像高度 */
+  border-radius: 50%; /* 头像圆形 */
+  border: 2px solid #ccc; /* 头像边框 */
+}
+.title[data-v-860aaed2] {
+  font-size: 24px;
+  font-weight: bold;
+}
+.profile[data-v-860aaed2] {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.role-title[data-v-860aaed2] {
+  font-size: 20px;
+  font-weight: bold;
+}
+.role-switch[data-v-860aaed2] {
+  margin-top: 20px;
+}

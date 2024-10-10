@@ -4,7 +4,7 @@
     <view class="avatar-container">
       <image 
         class="avatar" 
-        src='../../static/logo.png' 
+        src="../../static/tab/my2.png"
         mode="aspectFill" 
         @error="onImageError" 
       />
@@ -12,7 +12,6 @@
     
     <!-- 老师主页 -->
     <view v-if="userRole === 'teacher'" class="profile">
-      <text class="role-title">{{ username }}！</text>
       <text>欢迎你，这里是你的老师主页。</text>
       <button @click="navigateToMyProject">我的项目</button>
       <button @click="navigateToProjectPage">指导项目</button>
@@ -20,7 +19,7 @@
     
     <!-- 学生主页 -->
     <view v-else-if="userRole === 'student'" class="profile">
-      <text class="role-title">{{ username }}！</text>
+      
       <text>欢迎你，这里是你的学生主页。</text>
       <button @click="navigateToMyProject">我的项目</button>
       <button @click="navigateToProjectPage">参与项目</button>
@@ -30,11 +29,6 @@
       <text>切换角色:</text>
       <button @click="setRole('teacher')">老师</button>
       <button @click="setRole('student')">学生</button>
-    </view>
-
-    <!-- 个人信息按钮 -->
-    <view class="profile-button-container">
-      <button class="profile-button" @click="goToPersonalInfo">个人信息</button>
     </view>
   </view>
 </template>
@@ -61,12 +55,6 @@ export default {
       // 跳转到项目页面
       uni.navigateTo({
         url: '/pages/myself/project' // 跳转到 pages/myself/project
-      });
-    },
-    goToPersonalInfo() {
-      // 导航到个人信息页面
-      uni.navigateTo({
-        url: '/pages/myself/data'
       });
     },
     onImageError() {
@@ -117,28 +105,5 @@ export default {
 
 .role-switch {
   margin-top: 20px;
-}
-
-/* 个人信息按钮的样式 */
-.profile-button-container {
-  margin-top: auto; /* 将按钮推到底部 */
-  display: flex;
-  justify-content: center; /* 按钮居中 */
-  margin-top: 30px; /* 额外的顶部间距 */
-}
-
-.profile-button {
-  padding: 6px 20px; /* 按钮内边距 */
-  background-color: #4CAF50; /* 按钮背景色 */
-  color: white; /* 按钮文本颜色 */
-  border: none; /* 去掉边框 */
-  border-radius: 5px; /* 圆角 */
-  cursor: pointer; /* 鼠标指针变为手指 */
-  font-size: 16px; /* 文本大小 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
-}
-
-.profile-button:hover {
-  background-color: #45a049; /* 悬停时的背景色 */
 }
 </style>

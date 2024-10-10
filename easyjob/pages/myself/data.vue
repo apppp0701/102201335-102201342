@@ -48,7 +48,7 @@ export default {
   align-items: center;
   padding: 20px;
   background-color: #C8F6C8;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .avatar-display {

@@ -85,19 +85,113 @@
 			}
 		},
 		{
-			"path" : "pages/myself/member",
-			"style" : 
-			{
-				"navigationBarTitleText" : "成员管理"
-			}
-		},
-		{
 			"path" : "pages/myself/project",
 			"style" : 
 			{
 				"navigationBarTitleText" : "项目"
 			}
+		},
+		{
+			"path" : "pages/post/post1",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/post/post2",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/post/post3",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/post/post4",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/post/post5",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/post/post6",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/people/people1",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/people/people2",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/people/people3",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/people/people4",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/people/people5",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/myself/member1",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/myself/member2",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/myself/member3",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
 		}
+		
+		
+		
 	],
 	"tabBar":{
 		 "color": "#6A6A6A",

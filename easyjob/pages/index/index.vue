@@ -39,27 +39,38 @@ export default {
         {
           title: '数学建模比赛项目',
           recruit: '2人',
-          deadline: '2024年3月1日',
+          deadline: '2024年11月10日',
           id: '1'
         },
         {
           title: '人工智能研究项目',
           recruit: '3人',
-          deadline: '2024年4月15日',
+          deadline: '2024年11月11日',
           id: '2'
         },
         {
-          title: '环保公益活动',
-          recruit: '5人',
-          deadline: '2024年5月10日',
-          id: '3'
+            title: '机器人设计大赛',
+            recruit: '4人',
+            deadline: '2024年11月12日',
+            id: '3'
         },
-        // 在这里继续添加更多项目...
         {
-          title: '更多项目名称',
-          recruit: '招募人数',
-          deadline: '截止日期',
-          id: '4' // 确保id是唯一的
+            title: '商业案例分析竞赛',
+            recruit: '5人',
+            deadline: '2024年11月13日',
+            id: '4'
+        },
+        {
+            title: '创新创意设计大赛',
+            recruit: '6人',
+            deadline: '2024年11月14日',
+            id: '5'
+        },
+        {
+            title: '电子设计大赛',
+            recruit: '4人',
+            deadline: '2024年11月15日',
+            id: '6'
         },
         // 更多项目...
       ]
@@ -67,10 +78,37 @@ export default {
   },
   methods: {
     navigateToDetail(item) {
-      // 跳转到详情界面，并传递项目ID
-      uni.navigateTo({
-        url: `/pages/post/post?id=${item.id}`
-      });
+      // 跳转到不同的详情界面，根据项目ID
+      if (item.id === '1') {
+        uni.navigateTo({
+          url: '/pages/post/post1'
+        });
+      } 
+	  if (item.id === '6') {
+	    uni.navigateTo({
+	      url: '/pages/post/post6'
+	    });
+	  } 
+	  if (item.id === '2') {
+	    uni.navigateTo({
+	      url: '/pages/post/post2'
+	    });
+	  } 
+	  if (item.id === '3') {
+	    uni.navigateTo({
+	      url: '/pages/post/post3'
+	    });
+	  } 
+	  if (item.id === '4') {
+	    uni.navigateTo({
+	      url: '/pages/post/post4'
+	    });
+	  } 
+	  if (item.id === '5') {
+	    uni.navigateTo({
+	      url: '/pages/post/post5'
+	    });
+	  } 
     },
     navigateToPost() {
       // 跳转到发布帖子界面
@@ -82,7 +120,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .iifooter-text {
   margin-right: 10px; /* 招募和报名截止之间的距离 */
 }
@@ -90,7 +128,7 @@ export default {
 .iicontainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom, #C7F6C7, #E4EFE8); /* 浅绿色渐变背景 */
   padding: 20px; /* 添加一些内边距 */
 }

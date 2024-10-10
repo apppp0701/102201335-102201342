@@ -1,0 +1,118 @@
+
+.container[data-v-aa6316d2] {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #C7F6C7, #E4EFE8);
+  padding: 20px;
+}
+.header[data-v-aa6316d2] {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.title[data-v-aa6316d2] {
+  font-size: 25px;
+  font-weight: bold;
+  display: block;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+.subtitle[data-v-aa6316d2] {
+  font-size: 12px;
+  color: #666;
+  display: block;
+  text-align: left;
+}
+.search-box[data-v-aa6316d2] {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.search-input[data-v-aa6316d2] {
+  width: 300px;
+  padding: 8px 36px 8px 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.search-input[data-v-aa6316d2]::-webkit-input-placeholder {
+  color: #aaa;
+}
+.search-input[data-v-aa6316d2]::placeholder {
+  color: #aaa;
+}
+.search-box[data-v-aa6316d2]::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url('../../static/tab/search.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-list[data-v-aa6316d2] {
+  display: flex;
+  flex-direction: column;
+}
+.person-card[data-v-aa6316d2] {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card-content[data-v-aa6316d2] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar[data-v-aa6316d2] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.avatar-image[data-v-aa6316d2] {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.person-info[data-v-aa6316d2] {
+  flex-grow: 1;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.person-info-line[data-v-aa6316d2] {
+  margin-bottom: 4px;
+}
+.person-name[data-v-aa6316d2],
+.person-school[data-v-aa6316d2],
+.person-major[data-v-aa6316d2] {
+  font-size: 14px;
+  color: #333;
+}
+.more-icon[data-v-aa6316d2] {
+  width: 20px;
+  height: 20px;
+}
+.role-tag[data-v-aa6316d2] {
+  display: flex;
+  align-items: center;
+  margin-top: -5px;
+  margin-left: 5px;
+}
+.tag[data-v-aa6316d2] {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}

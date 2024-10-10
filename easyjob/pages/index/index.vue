@@ -1,31 +1,31 @@
 <template>
-  <view class="container">
+  <view class="iicontainer">
     <!-- 顶部文字 -->
-    <view class="header">
-      <text class="title">项目推荐</text>
-      <text class="subtitle">精心筛选 只为更优秀的你</text>
+    <view class="iiheader">
+      <text class="iititle">项目推荐</text>
+      <text class="iisubtitle">精心筛选 只为更优秀的你</text>
     </view>
 
     <!-- 搜索框 -->
-    <view class="search-box">
-      <input class="search-input" type="text" placeholder="搜索" />
+    <view class="iisearch-box">
+      <input class="iisearch-input" type="text" placeholder="搜索" />
     </view>
 
     <!-- 卡片列表 -->
-    <view class="card-list">
-      <view v-for="(item, index) in projects" :key="index" class="card" @click="navigateToDetail(item)">
-        <view class="card-header">
-          <text class="card-title">{{ item.title }}</text>
+    <view class="iicard-list">
+      <view v-for="(item, index) in projects" :key="index" class="iicard" @click="navigateToDetail(item)">
+        <view class="iicard-header">
+          <text class="iicard-title">{{ item.title }}</text>
         </view>
-        <view class="card-footer">
-          <text class="footer-text">招募：{{ item.recruit }}</text>
-          <text class="footer-text">报名截止：{{ item.deadline }}</text>
+        <view class="iicard-footer">
+          <text class="iifooter-text">招募：{{ item.recruit }}</text>
+          <text class="iifooter-text">报名截止：{{ item.deadline }}</text>
         </view>
       </view>
     </view>
 
     <!-- 右下角按钮 -->
-    <view class="floating-button" @click="navigateToPost">
+    <view class="iifloating-button" @click="navigateToPost">
       <image src="../../static/button.png" mode="aspectFit" />
     </view>
   </view>
@@ -39,27 +39,38 @@ export default {
         {
           title: '数学建模比赛项目',
           recruit: '2人',
-          deadline: '2024年3月1日',
+          deadline: '2024年11月10日',
           id: '1'
         },
         {
           title: '人工智能研究项目',
           recruit: '3人',
-          deadline: '2024年4月15日',
+          deadline: '2024年11月11日',
           id: '2'
         },
         {
-          title: '环保公益活动',
-          recruit: '5人',
-          deadline: '2024年5月10日',
-          id: '3'
+            title: '机器人设计大赛',
+            recruit: '4人',
+            deadline: '2024年11月12日',
+            id: '3'
         },
-        // 在这里继续添加更多项目...
         {
-          title: '更多项目名称',
-          recruit: '招募人数',
-          deadline: '截止日期',
-          id: '4' // 确保id是唯一的
+            title: '商业案例分析竞赛',
+            recruit: '5人',
+            deadline: '2024年11月13日',
+            id: '4'
+        },
+        {
+            title: '创新创意设计大赛',
+            recruit: '6人',
+            deadline: '2024年11月14日',
+            id: '5'
+        },
+        {
+            title: '电子设计大赛',
+            recruit: '4人',
+            deadline: '2024年11月15日',
+            id: '6'
         },
         // 更多项目...
       ]
@@ -67,10 +78,37 @@ export default {
   },
   methods: {
     navigateToDetail(item) {
-      // 跳转到详情界面，并传递项目ID
-      uni.navigateTo({
-        url: `/pages/post/post?id=${item.id}`
-      });
+      // 跳转到不同的详情界面，根据项目ID
+      if (item.id === '1') {
+        uni.navigateTo({
+          url: '/pages/post/post1'
+        });
+      } 
+	  if (item.id === '6') {
+	    uni.navigateTo({
+	      url: '/pages/post/post6'
+	    });
+	  } 
+	  if (item.id === '2') {
+	    uni.navigateTo({
+	      url: '/pages/post/post2'
+	    });
+	  } 
+	  if (item.id === '3') {
+	    uni.navigateTo({
+	      url: '/pages/post/post3'
+	    });
+	  } 
+	  if (item.id === '4') {
+	    uni.navigateTo({
+	      url: '/pages/post/post4'
+	    });
+	  } 
+	  if (item.id === '5') {
+	    uni.navigateTo({
+	      url: '/pages/post/post5'
+	    });
+	  } 
     },
     navigateToPost() {
       // 跳转到发布帖子界面
@@ -82,25 +120,25 @@ export default {
 }
 </script>
 
-<style>
-.footer-text {
+<style scoped>
+.iifooter-text {
   margin-right: 10px; /* 招募和报名截止之间的距离 */
 }
 
-.container {
+.iicontainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom, #C7F6C7, #E4EFE8); /* 浅绿色渐变背景 */
   padding: 20px; /* 添加一些内边距 */
 }
 
-.header {
+.iiheader {
   margin-bottom: 20px; /* 搜索框高度 */
   text-align: center; /* Center the text */
 }
 
-.title {
+.iititle {
   font-size: 25px;
   font-weight: bold;
   display: block; /* Ensure title is on a new line */
@@ -109,14 +147,14 @@ export default {
   margin-bottom: 5px; /* 增加标题与副标题之间的间距 */
 }
 
-.subtitle {
+.iisubtitle {
   font-size: 12px;
   color: #666;
   display: block; /* Ensure subtitle is on a new line */
   text-align: left; /* Right align the subtitle */
 }
 
-.search-box {
+.iisearch-box {
   position: relative; /* 为定位图标做准备 */
   width: 100%; /* 使容器宽度为100% */
   display: flex; /* 使用 flexbox 来居中 */
@@ -124,7 +162,7 @@ export default {
   margin: 20px 0; /* 设置上下外边距，可以根据需要调整 */
 }
 
-.search-input {
+.iisearch-input {
   width: 300px; /* 适当缩短搜索框的宽度 */
   padding: 8px 36px 8px 40px; /* 左侧留出空间给图标 */
   border-radius: 8px;
@@ -133,12 +171,12 @@ export default {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加轻微阴影以提升视觉效果 */
 }
 
-.search-input::placeholder {
+.iisearch-input::placeholder {
   color: #aaa; /* 更改占位符颜色 */
 }
 
 /* 添加搜索图标 */
-.search-box::before {
+.iisearch-box::before {
   content: ''; /* 使用伪元素 */
   position: absolute; /* 绝对定位 */
   left: 10px; /* 距离左侧10px */
@@ -151,12 +189,12 @@ export default {
   background-repeat: no-repeat; /* 不重复 */
 }
 
-.card-list {
+.iicard-list {
   display: flex;
   flex-direction: column;
 }
 
-.card {
+.iicard {
   background-color: #f9f9f9;
   padding: 16px;
   border-radius: 8px;
@@ -164,22 +202,22 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
+.iicard-header {
   margin-bottom: 8px;
 }
 
-.card-title {
+.iicard-title {
   font-size: 18px;
   font-weight: bold;
 }
 
-.card-footer {
+.iicard-footer {
   font-size: 12px;
   color: #999;
 }
 
 /* 右下角按钮样式 */
-.floating-button {
+.iifloating-button {
   position: fixed;
   bottom: 80px; /* 距离底部20px */
   right: 20px; /* 距离右边20px */
@@ -188,7 +226,7 @@ export default {
   z-index: 1000; /* 确保按钮在最上层 */
 }
 
-.floating-button image {
+.iifloating-button image {
   width: 100%;
   height: 100%;
 }

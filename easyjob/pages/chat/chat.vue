@@ -5,7 +5,7 @@
       <view v-for="(msg, index) in chatMessages" :key="index" :class="['message', msg.type]">
         <image v-if="msg.type === 'received'" src="../../static/tab/my1.png" mode="aspectFit" class="avatar" />
         <text class="message-text">{{ msg.text }}</text>
-        <image v-if="msg.type === 'sent'" src="../../static/logo.png" mode="aspectFit" class="avatar" />
+        <image v-if="msg.type === 'sent'" src="../../static/tab/my2.png" mode="aspectFit" class="avatar" />
       </view>
     </view>
 
@@ -20,27 +20,24 @@
 <script>
 export default {
   data() {
-      return {
-        chatMessages: [], // 现在这个数组为空
-        newMessage: ''
-      };
-    },
+    return {
+      chatMessages: [], // 现在这个数组为空
+      newMessage: ''
+    };
+  },
   methods: {
     sendMessage() {
       if (this.newMessage.trim()) {
         this.chatMessages.push({ text: this.newMessage, type: 'sent' });
         this.newMessage = '';
-        // Simulate a response
-        setTimeout(() => {
-          this.chatMessages.push({ text: '收到你的消息', type: 'received' });
-        }, 1000);
+        // 移除了自动回复的模拟代码
       }
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .chat-container {
   display: flex;
   flex-direction: column;

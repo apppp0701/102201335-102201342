@@ -13,23 +13,23 @@
 
     <!-- Person Card List -->
     <view class="card-list">
-      <view v-for="(person, index) in people" :key="index" class="person-card">
+      <view v-for="(person, index) in people" :key="index" class="person-card" @click="goToPersonData(person)">
         <view class="card-content">
           <view class="avatar">
-            <image src="../../static/logo.png" mode="aspectFit" class="avatar-image" />
+            <image :src="person.avatar" mode="aspectFit" class="avatar-image" />
           </view>
           <view class="person-info">
             <view class="person-info-line">
               <text class="person-name">姓名：{{ person.name }}</text>
             </view>
             <view class="person-info-line">
-              <text class="person-id">学校：{{ person.id }}</text>
+              <text class="person-school">学校：{{ person.school }}</text>
             </view>
             <view class="person-info-line">
               <text class="person-major">专业：{{ person.major }}</text>
             </view>
           </view>
-          <image src="../../static/message.png" mode="aspectFit" class="more-icon" @click="goToChat(person)" />
+          <image src="../../static/message.png" mode="aspectFit" class="more-icon" @click.stop="goToChat(person)" />
         </view>
         <view class="role-tag">
           <text class="tag">{{ person.role }}</text>
@@ -45,35 +45,45 @@ export default {
     return {
       people: [
         {
-          name: '李小明',
-          id: '福州大学',
+          name: '董小莉',
+          school: '福州大学',
           major: '计算机科学与技术',
-          role: '学生'
+          role: '学生',
+          id: '1',
+          avatar: '../../static/photo/Camera_XHS_17284907275621040g0083128aen7ghk0g49lj.jpg'
         },
         {
           name: '李老师',
-          id: '福州大学',
-          major: '计算机科学与技术',
-          role: '老师'
+          school: '福州大学',
+          major: '人工智能',
+          role: '老师',
+          id: '2',
+          avatar: '../../static/photo/Camera_XHS_17284907293721040g0083128aen7ghk1049lj.jpg'
         },
-		{
-		  name: '李小明',
-		  id: '福州大学',
-		  major: '计算机科学与技术',
-		  role: '学生'
-		},
-		{
-		  name: '李老师',
-		  id: '福州大学',
-		  major: '计算机科学与技术',
-		  role: '老师'
-		},
-		{
-		  name: '李小明',
-		  id: '福州大学',
-		  major: '计算机科学与技术',
-		  role: '学生'
-		},
+        {
+          name: '潘小晴',
+          school: '福州大学',
+          major: '网络安全',
+          role: '学生',
+          id: '3',
+          avatar: '../../static/photo/Camera_XHS_17284907311851040g0083128aen7ghk1g49lj.jpg'
+        },
+        {
+          name: '王老师',
+          school: '福州大学',
+          major: '电气工程及其自动化',
+          role: '老师',
+          id: '4',
+          avatar: '../../static/photo/Camera_XHS_17284907330211040g0083128aen7ghk2049lj.jpg'
+        },
+        {
+          name: '蒋方方',
+          school: '福州大学',
+          major: '机械工程',
+          role: '学生',
+          id: '5',
+          avatar: '../../static/photo/Camera_XHS_17284907348801040g0083128aen7ghk2g49lj.jpg'
+        },
         // Add more people as needed
       ]
     };
@@ -81,78 +91,82 @@ export default {
   methods: {
     goToChat(person) {
       // Navigate to the chat page and pass the person data
-      // Adjust the navigate method according to the framework you are using
       uni.navigateTo({
         url: `/pages/chat/chat?name=${person.name}&id=${person.id}&major=${person.major}&role=${person.role}`
+      });
+    },
+    goToPersonData(person) {
+      // Navigate to the specific page for each person
+      uni.navigateTo({
+        url: `/pages/people/people${person.id}`
       });
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background: linear-gradient(to bottom, #C7F6C7, #E4EFE8); /* 浅绿色渐变背景 */
-  padding: 20px; /* 添加一些内边距 */
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #C7F6C7, #E4EFE8);
+  padding: 20px;
 }
 
 .header {
-  margin-bottom: 20px; /* 搜索框高度 */
-  text-align: center; /* Center the text */
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .title {
   font-size: 25px;
   font-weight: bold;
-  display: block; /* Ensure title is on a new line */
-  text-align: left; /* Right align the title */
-  margin-top: 50px; /* 增加标题与上方元素之间的间距 */
-  margin-bottom: 5px; /* 增加标题与副标题之间的间距 */
+  display: block;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 5px;
 }
 
 .subtitle {
   font-size: 12px;
   color: #666;
-  display: block; /* Ensure subtitle is on a new line */
-  text-align: left; /* Right align the subtitle */
+  display: block;
+  text-align: left;
 }
 
 .search-box {
-  position: relative; /* 为定位图标做准备 */
-  width: 100%; /* 使容器宽度为100% */
-  display: flex; /* 使用 flexbox 来居中 */
-  justify-content: center; /* 水平居中对齐 */
-  margin: 20px 0; /* 设置上下外边距，可以根据需要调整 */
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .search-input {
-  width: 300px; /* 适当缩短搜索框的宽度 */
-  padding: 8px 36px 8px 40px; /* 左侧留出空间给图标 */
+  width: 300px;
+  padding: 8px 36px 8px 40px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  background-color: #fff; /* 设置背景色为白色 */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加轻微阴影以提升视觉效果 */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-input::placeholder {
-  color: #aaa; /* 更改占位符颜色 */
+  color: #aaa;
 }
 
-/* 添加搜索图标 */
 .search-box::before {
-  content: ''; /* 使用伪元素 */
-  position: absolute; /* 绝对定位 */
-  left: 10px; /* 距离左侧10px */
-  top: 50%; /* 垂直居中 */
-  transform: translateY(-50%); /* 精确垂直居中 */
-  width: 16px; /* 图标宽度 */
-  height: 16px; /* 图标高度 */
-  background-image: url('../../static/tab/search.png'); /* 替换为您的图标路径 */
-  background-size: contain; /* 图标适应背景 */
-  background-repeat: no-repeat; /* 不重复 */
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url('../../static/tab/search.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .card-list {
@@ -170,14 +184,14 @@ export default {
 
 .card-content {
   display: flex;
-  align-items: center; /* 保持子元素垂直居中 */
-  justify-content: center; /* 添加水平居中 */
+  align-items: center;
+  justify-content: center;
 }
 
 .avatar {
   display: flex;
   align-items: center;
-  margin-bottom: 0; /* 移除默认的底部外边距 */
+  margin-bottom: 0;
 }
 
 .avatar-image {
@@ -191,7 +205,7 @@ export default {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* 使内容左对齐 */
+  align-items: flex-start;
 }
 
 .person-info-line {
@@ -199,7 +213,7 @@ export default {
 }
 
 .person-name,
-.person-id,
+.person-school,
 .person-major {
   font-size: 14px;
   color: #333;
@@ -212,8 +226,8 @@ export default {
 
 .role-tag {
   display: flex;
-  align-items: center; /* 垂直居中标签内容 */
-  margin-top: -5px; /* 上移标签以缩小与头像的距离 */
+  align-items: center;
+  margin-top: -5px;
   margin-left: 5px;
 }
 
@@ -224,5 +238,4 @@ export default {
   padding: 2px 4px;
   border-radius: 4px;
 }
-
 </style>

@@ -63,13 +63,13 @@ export default {
     formSubmit() {
       // 提交表单后跳转到发布页面
       console.log('发布内容:', this.formData);
-      this.$router.push('/pages/post/post'); // 页面跳转
+      this.$router.push('/pages/index/index'); // 页面跳转
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   padding: 20px;
 

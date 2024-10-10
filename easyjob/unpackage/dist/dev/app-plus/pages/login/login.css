@@ -1,0 +1,74 @@
+
+.lllogin-container[data-v-e4e4508d] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 更改为向上对齐 */
+  height: 100vh; /* 使用视口高度 */
+  background: linear-gradient(to bottom, #C7F6C7, #E4EFE8);
+  padding-top: 180px; /* 添加顶部内边距以整体上移 */
+  padding-bottom: 20px; /* 可选：保持底部间距 */
+}
+.llheader[data-v-e4e4508d] {
+  display: flex;
+  flex-direction: column; /* 设置为垂直排列 */
+  align-items: center; /* 水平居中 */
+  justify-content: center; /* 垂直居中 */
+}
+.lltitle[data-v-e4e4508d] {
+  line-height: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.llsubtitle[data-v-e4e4508d] {
+  line-height: 50px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.llform[data-v-e4e4508d] {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+.llinput-group[data-v-e4e4508d] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 10px;
+}
+.llicon[data-v-e4e4508d] {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.llinput[data-v-e4e4508d] {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+.lllogin-button[data-v-e4e4508d] {
+  width: 100%;
+  max-width: 300px;
+  padding: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.llregister-button[data-v-e4e4508d] {
+  width: 100%;
+  max-width: 300px;
+  padding: 5px;
+  background-color: transparent;
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+  border-radius: 25px;
+  text-align: center;
+}
+.llerror-message[data-v-e4e4508d] {
+  color: red;
+  margin-top: 20px;
+}

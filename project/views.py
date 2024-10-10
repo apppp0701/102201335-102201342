@@ -5,6 +5,10 @@ from django.http import JsonResponse
 from project.models import Project
 from django.views.decorators.csrf import *
 from project.form import ProjectForm
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+import json
+
 
 # Create your views here.
 def project_list(request):
@@ -17,15 +21,12 @@ def project_detail(request, pk):
     pd = list(project.values())[0]
     return JsonResponse(pd)
 
-@requires_csrf_token
-@login_required
-
+@csrf_exempt
+@require_http_methods(["POST"])
 def project_create(request):
-    if request.method == 'GET':
-        project = Project.objects.all()
-        return render(request, '.vue',context={'projects': project})
-    else:
-        form = ProjectForm(request.POST)
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        form = ProjectForm(data)
         if form.is_valid():
             name = form.cleaned_data['name']
             description = form.cleaned_data['description']
@@ -34,9 +35,16 @@ def project_create(request):
             project_num = form.cleaned_data['project_num']
             project_goal = form.cleaned_data['project_goal']
             project_need = form.cleaned_data['project_need']
-            Project.objects.create(name=name, description=description, register=register, project_end=project_end, project_num=project_num, project_goal=project_goal, project_need=project_need)
-            return JsonResponse({'code':200, 'message': '创建项目成功'})
+            Project.objects.create(name=name, description=description, register=register,
+                                   project_end=project_end, project_num=project_num,
+                                   project_goal=project_goal, project_need=project_need)
+            return JsonResponse({'code': 200, 'message': '创建项目成功'})
         else:
-            print(form.errors)
-            return JsonResponse({'code': 400, 'message': '创建项目失败'})
+            return JsonResponse({'code': 400, 'message': '创建项目失败', 'errors': form.errors})
 
+
+
+@require_http_methods(["GET"])
+def csrf(request):
+    csrf_token = request.COOKIES.get('csrftoken')
+    return JsonResponse({'csrfToken': csrf_token})

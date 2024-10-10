@@ -1,4 +1,4 @@
-from .views import project_list, project_detail, project_create
+from .views import project_list, project_detail, project_create, csrf
 from django.urls import path
 
 urlpatterns = [
@@ -6,4 +6,5 @@ urlpatterns = [
     path('list/', project_list, name='project_list'),
     path('detail/<pk>/', project_detail, name='project_detail'),
     path('create/', project_create, name='project_create'),
+    path('csrf/', csrf, name='csrf'),
 ]

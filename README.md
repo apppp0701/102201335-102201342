@@ -1,4 +1,53 @@
 # 102201335-102201342
 # 目录说明
-
+    - easyjob(front-end)
+        -  .hbuilderx # HBuilderX项目配置文件
+        - componets/Statusbar # 状态栏
+        - pages # 页面
+            - chat # 聊天页面
+            - creat # 创建项目页面
+            - index # 首页
+            - login # 登录页面
+            - message # 消息页面
+            - myself # 个人中心页面
+            - people # 推荐人界面
+            - post # 发布项目页面
+            - register # 注册页面
+        - static # 静态资源
+        - unpackage
+        - App.vue
+        - main.js
+        - manifest.json
+        - index.html
+        - pages.json
+        - uni.promisify.adaptor.js
+    - server(back-end)
+        - server
+            - __init__.py
+            - asgi.py
+            - settings.py
+            - urls.py
+            - wsgi.py
+            - routing.py
+        - register
+            - __init__.py
+            - admin.py
+            - apps.py
+            - api_urls.py
+            - models.py
+            - tests.py
+            - views.py
+            - people.py
+        - project
+            - __init__.py
+            - admin.py
+            - apps.py
+            - form.py
+            - models.py
+            - tests.py
+            - views.py
+            - api_urls.py
+        - manage.py
+        - templates
 # 使用说明
+点击app打开软件，进行个人信息注册，首页有项目推荐，可点击查看详情；人才页有学生和老师人才推荐，可点击查看人才信息，也可点击右边的聊天标识进入聊天页面；消息页面可以和想认识的人才交流；我的页面可以查看自己所参加的项目或指导的项目。
